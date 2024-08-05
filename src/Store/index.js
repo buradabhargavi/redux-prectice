@@ -1,4 +1,4 @@
-import redux from "react-redux";
+import { createStore } from "redux";
 
 const counter = (state = { count: 0 }, action) => {
   if (action.type === "INCREMENT") {
@@ -11,19 +11,19 @@ const counter = (state = { count: 0 }, action) => {
       count: state.count - 1,
     };
   }
-  if (action.type === "DECREMENTBY2") {
+  if (action.type === "DECREMENTBY5") {
     return {
-      count: state.count - 2,
+      count: state.count - 5,
     };
   }
-  if (action.type === "INCREMENTBY2") {
+  if (action.type === "INCREMENTBY5") {
     return {
-      count: state.count + 2,
+      count: state.count + 5,
     };
   }
   return state;
 };
 
-const Store = redux.createStore(counter);
+const Store = createStore(counter);
 
 export default Store;
