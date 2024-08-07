@@ -1,6 +1,17 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../Store";
 
 function Header() {
+  const login = useSelector((state) => state.Auth.isLoggedin);
+  const dispatch = useDispatch();
+
+  const logoutHanlder = () => {
+    dispatch(authActions.logout());
+    //console.log("logOut");
+  };
+
+  console.log(login);
   return (
     <div
       style={{
@@ -24,8 +35,9 @@ function Header() {
         <li>My sales</li>
         <button
           style={{ background: "yellow", padding: "10px", borderRadius: "10%" }}
+          onClick={logoutHanlder}
         >
-          Logout
+          {login ? "Logout" : "Login"}
         </button>
       </div>
     </div>
