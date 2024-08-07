@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { authActions } from "../Store";
+import { authActions } from "../Store/AuthSlice";
 
 function Header() {
   const login = useSelector((state) => state.Auth.isLoggedin);
